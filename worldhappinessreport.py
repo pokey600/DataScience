@@ -8,7 +8,8 @@ s1 = pd.Series([1,2,3,4,5,6], index=pd.date_range('20130102', periods=6))
 df1 = df.reindex(index=dates[0:4], columns=list(df.columns) + ['E'])
 df1.loc[dates[0]:dates[1],'E'] = 1
 df1.dropna(how='any')
+pd.read_excel('WHR2018Chapter2OnlineData.xls', 'Sheet1', index_col=None, na_values=['NA'])
 df = pd.DataFrame(np.random.randn(10, 4))
-pd.read_csv('WHR2018Chapter2OnlineData.xls')
-
-
+df = pd.DataFrame(np.random.randn(1000, 4), index=ts.index, columns=['A', 'B', 'C', 'D'])
+df = df.cumsum()
+plt.figure(); df.plot(); plt.legend(loc='best')
